@@ -1,6 +1,6 @@
 # 🤖 BaloonZord – Robô Bluetooth com ESP32
 
-Este é um projeto de um robô controlado via Bluetooth utilizando um ESP32. O robô é capaz de se mover em diferentes direções, ajustar sua velocidade e realizar giros de 90 graus com velocidade fixa.
+Este é um projeto de um robô controlado via Bluetooth utilizando um ESP32. O robô é capaz de se mover em diferentes direções e permite o controle de velocidade.
 
 ## 📱 Funcionalidades
 
@@ -19,15 +19,12 @@ Este é um projeto de um robô controlado via Bluetooth utilizando um ESP32. O r
 | `P`    | Parar                              |
 | `V###;`| Define a velocidade (ex: `V200;`)  |
 
-## 🧠 Lógica de funcionamento
-
-- Os motores são controlados via PWM nos pinos `ENA` e `ENB`.
-- A comunicação Bluetooth é feita através da biblioteca `BluetoothSerial`.
 
 ## 🧰 Hardware utilizado
 
-- Placa ESP32
-- 2 motores DC com driver ponte H (L298N)
-- Fonte de alimentação (bateria)
-- Jumpers, protoboard, fios
+- 1 placa ESP32
+- 2 motores DC
+- 1 ponte H (L298N)
+- 1 fonte de alimentação 3V para o ESP32
+- 1 fonte de alimentação 6V a 12V para os motores
 - Opcional: antena
