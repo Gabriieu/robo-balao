@@ -11,6 +11,7 @@
 BluetoothSerial SerialBT;
 
 int velocidade = 255;
+int tempoGiro = 115;
 unsigned long tempoUltimoComando = 0;
 unsigned long tempoLimite = 200;
 bool motoresAtivos = false;
@@ -34,7 +35,6 @@ void setup() {
 }
 
 void loop() {
-  // Tratar comandos Bluetooth
   while (SerialBT.available()) {
     char c = SerialBT.read();
 
@@ -44,6 +44,13 @@ void loop() {
       if (novaVel >= 0 && novaVel <= 255) {
         velocidade = novaVel;
         Serial.println("Velocidade: " + String(velocidade));
+      }
+    } else if (c == 'G') {
+      String valor = SerialBT.readStringUntil(';');
+      int novoTempo = valor.toInt();
+      if (novoTempo >= 30 && novoTempo <= 500) {  // limitar tempo entre 30ms e 500ms
+        tempoGiro = novoTempo;
+        Serial.println("Tempo de giro atualizado: " + String(tempoGiro) + " ms");
       }
     } else {
       tempoUltimoComando = millis();
@@ -58,15 +65,11 @@ void loop() {
           motoresAtivos = false;
           break;
         case 'I':
-          {
-            virar90('I');
-            break;
-          }
+          virar90('I');
+          break;
         case 'O':
-          {
-            virar90('O');
-            break;
-          }
+          virar90('O');
+          break;
       }
     }
   }
@@ -124,8 +127,7 @@ void parar() {
 }
 
 void virar90(char lado) {
-  const int velocidadeGiro = 200;  // Velocidade fixa para giro de 90 graus
-  const int tempoGiro = 150;       // Tempo necessário para girar aproximadamente 90 graus, pode variar dependendo do peso, motor, distância entre as rodas, superfície de contato, entre outras variáveis.
+  const int velocidadeGiro = 255;
 
   if (lado == 'I') {
     digitalWrite(M1_IN1, HIGH);
