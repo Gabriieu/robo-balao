@@ -14,8 +14,8 @@ Este projeto consiste no desenvolvimento de um robô controlado via Bluetooth, c
 | ------: | ---------------------------------------------- |
 |     `F` | Move para frente                               |
 |     `T` | Move para trás                                 |
-|     `E` | Gira levemente para a esquerda                 |
-|     `D` | Gira levemente para a direita                  |
+|     `E` | Gira para a esquerda                 |
+|     `D` | Gira para a direita                  |
 |     `I` | Gira 90º para a esquerda                       |
 |     `O` | Gira 90º para a direita                        |
 | `V###;` | Define a velocidade (ex: `V200;`)              |
