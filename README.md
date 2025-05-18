@@ -48,7 +48,7 @@ Além disso, o tempo de giro não precisa estar limitado apenas a 90 graus: ao a
 
 ### 🖼️ Imagens
 
-### Vista em perspectiva do robô
+### Vista em perspectiva
 
 <p float="left">
   <img src="images/perspectiva.jpeg" width="50%" />
